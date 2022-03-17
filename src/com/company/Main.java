@@ -1,19 +1,17 @@
 package com.company;
 
+import java.util.Locale;
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
-
-        Weekdays weekdays = Weekdays.ISHEMBI;
-
-        switch (weekdays){
-            case DUISHOMBU -> System.out.println("Java okuim");
-            case SHEYSHEMBI -> System.out.println("Anglis til okuim");
-            case SHARSHENBI -> System.out.println("Persentatsiya kylam");
-            case BEYSHEMBI-> System.out.println("Tez jazganga mashygam");
-            case JUMA-> System.out.println("Kitep okuim");
-            case ISHEMBI-> System.out.println("Marafongo dayardanam");
-            case JEKSHEMBI -> System.out.println("Basseinge baram");
+        Scanner scanner = new Scanner(System.in);
+        String weekdays = scanner.nextLine();
+        try {
+            System.out.println(Weekdays.valueOf(weekdays.toUpperCase(Locale.ROOT)));
+        } catch (IllegalArgumentException a) {
+            System.out.println("Tuura emes jazdynyz: " + weekdays);
         }
     }
 }
